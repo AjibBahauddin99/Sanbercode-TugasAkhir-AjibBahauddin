@@ -1,0 +1,19 @@
+{
+  "name": "cypresstesting",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Ajib",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress-open": "npx cypress open",
+    "cypress-run": "npx cypress run",
+    "cypress-header": "npx cypress run --headed"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.2",
+    "cypress-xpath": "^2.0.1"
+  }
+}
