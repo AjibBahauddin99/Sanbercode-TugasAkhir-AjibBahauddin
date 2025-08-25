@@ -15,7 +15,7 @@ describe("Quiz 3 Sanbercode Testing Login Website Orange HRM by Ajib Bahauddin",
     cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('admin')
     cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type('admin123')
     cy.get('.oxd-button').click()   
-    //cy.get('.oxd-alert-content-text').should('contain.text', 'Invalid credentials')        
+    cy.get('.oxd-alert-content-text').should('contain.text', 'Invalid credentials')        
     })   
     
     it("LOG_003-Login failed when using valid username and wrong password ", () => {
@@ -63,8 +63,8 @@ describe("Quiz 3 Sanbercode Testing Login Website Orange HRM by Ajib Bahauddin",
 
     it("LOG_008-User cannot login with empty credentials ", () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/')
-    cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type(' ')
-    cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type(' ')
+    cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('') //jika type nya hanya spasi 1x, hasilnya akan passed
+    cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type('') //jika type nya hanya spasi 1x, hasilnya akan passed
     cy.get('.oxd-button').click()
     cy.get('body').should('not.contain.text', 'Invalid credentials')
     cy.url().should('include', '/auth/login')
@@ -73,7 +73,7 @@ describe("Quiz 3 Sanbercode Testing Login Website Orange HRM by Ajib Bahauddin",
     it("LOG_009-Login failed when valid username is entered but password field is empty ", () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/')
     cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('Admin')
-    cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type(' ')
+    cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type('') //jika type nya hanya spasi 1x, hasilnya akan passed
     cy.get('.oxd-button').click()
     cy.get('body').should('not.contain.text', 'Invalid credentials')
     cy.get(':nth-child(3) > .oxd-input-group > .oxd-text').should('be.visible')
@@ -83,7 +83,7 @@ describe("Quiz 3 Sanbercode Testing Login Website Orange HRM by Ajib Bahauddin",
 
     it("LOG_010-Login failed when username field is empty but password is valid", () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/')
-    cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type(' ')
+    cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('') //jika type nya hanya spasi 1x, hasilnya akan passed
     cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type('Admin123')
     cy.get('.oxd-button').click()
     cy.get(':nth-child(2) > .oxd-input-group > .oxd-text').should('be.visible')
